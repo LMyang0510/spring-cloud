@@ -3,21 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example.springcloud</groupId>
-    <artifactId>ribbon</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>ribbon</name>
-    <packaging>pom</packaging>
-
     <parent>
         <groupId>com.example</groupId>
         <artifactId>springcloud</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
+    <groupId>com.example.springcloud</groupId>
+    <artifactId>ribbon</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>ribbon</name>
+    <packaging>pom</packaging>
+
     <modules>
         <module>hello-service</module>
-        <module>ribbon-consumer</module>
+        <module>consumer-restTemplate</module>
     </modules>
 
 </project>
