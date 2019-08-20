@@ -3,11 +3,10 @@
     因为是单机演示，所以需要修改hosts文件，在最后添加 
     127.0.0.1 peer1
     127.0.0.1 peer2
-    
 ### 项目结构
     |-- hello-service（服务提供者）
-    |-- ribbon-consumer（服务消费者）
-
+    |-- consumer-restTemplate（服务消费者）
+    |-- consumer-feign（服务消费者）
 #### 启动
 - jar包 方式cmd命令行启动: 
 ```
@@ -19,20 +18,30 @@ java -jar 项目名.jar --spring.profiles.active=active2
 在启动时分别在 Active profiles 处填入 active1 和 active2 指定配置文件启动
 ```
  
+ 
 ### hello-service（服务提供者）
     同eureka方式启动，提供/hello接口，返回服务名称和占用端口信息
     
-### ribbon-consumer（服务消费者）
+### consumer-restTemplate（服务消费者）
 #### 简介
     在hello-service启动后，通过加有@LoadBalanced注解的restTemplate远程调用其/hello接口，
     ribbon会自动选择其中一台服务进行调用，完成接口间的远程调用。
-    
 #### 启动
     jar包方式 或 idea springBoot 方式 直接启动
-
 ### 演示过程
-    在浏览器输入 localhost:9101/ribbon-consumer 并回车，
-    然后反复刷新页面，会看到两个hello-service在轮流提供服务
+    在浏览器输入 localhost:9101/restTemplate 并回车，
+    然后反复刷新页面，会看到两个hello-service在轮流提供服务 
+
+
+### consumer-feign（服务消费者）
+#### 简介
+    在hello-service启动后，通过加有@FeignClient注解的接口远程调用其/hello接口，
+    ribbon会自动选择其中一台服务进行调用，完成接口间的远程调用。
+#### 启动
+    同consumer-restTemplate工程
+### 演示过程
+    在浏览器输入 localhost:9102/feign 并回车，效果同restTemplate调用方式
+
 
 ## Spring Cloud Ribbon客户端负载均衡原理
 	springCloud进行服务调用，只需要知道服务的名称如（hello-service），即可进行调用；
