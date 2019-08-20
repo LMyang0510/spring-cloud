@@ -17,7 +17,8 @@
     </parent>
 
     <modules>
-        <module>ribbon-demo1</module>
+        <module>eureka</module>
+        <module>ribbon</module>
     </modules>
 
     <properties>
