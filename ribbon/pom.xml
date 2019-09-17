@@ -15,9 +15,24 @@
     <name>ribbon</name>
     <packaging>pom</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+        </dependency>
+    </dependencies>
+
     <modules>
-        <module>hello-service</module>
-        <module>consumer-restTemplate</module>
+        <module>restTemplate</module>
+        <module>feign</module>
     </modules>
 
 </project>
