@@ -1,4 +1,4 @@
-package com.example.springcloud.ribbon.feign;
+package com.example.springcloud.feignclient;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +11,7 @@ import java.util.List;
  * @author LMyang
  */
 @FeignClient("hello-service")
-public interface FeignClientInterface {
+public interface HelloServiceFeign {
 
     @GetMapping("/hello")
     String hello();

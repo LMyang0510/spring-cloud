@@ -9,8 +9,8 @@
     </parent>
 
     <groupId>com.example.springcloud.ribbon</groupId>
-    <artifactId>restTemplate</artifactId>
+    <artifactId>rest-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>restTemplate</name>
+    <name>rest-template</name>
 
 </project>

@@ -1,5 +1,6 @@
 package com.example.springcloud.helloservice;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ public class HelloController {
     private String port;
 
     @GetMapping("/hello")
+    @HystrixCommand(fallbackMethod = "helloFallBack")
     public String hello() {
         return applicationName + ":" + port;
     }
@@ -32,5 +34,9 @@ public class HelloController {
     @GetMapping("/hello/list")
     public String hello(@RequestParam("list") List<String> list) {
         return applicationName + ":" + port + "\t" + list;
+    }
+
+    public String helloFallBack() {
+        return "error";
     }
 }
