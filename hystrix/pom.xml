@@ -17,7 +17,7 @@
     <dependencies>
         <dependency>
             <groupId>com.example.springcloud</groupId>
-            <artifactId>feignclient</artifactId>
+            <artifactId>feign-client</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 

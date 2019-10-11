@@ -11,10 +11,11 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
+ * Feign方式调用服务
+ *
  * @author LMyang
  */
 @RestController
-@RequestMapping("/feign")
 public class FeignController {
 
     @Resource
@@ -22,22 +23,16 @@ public class FeignController {
 
     @GetMapping("/hello")
     public String hello() {
-        String response = "feign调用：" + helloServiceFeign.hello();
-        System.out.println(response);
-        return response;
+        return "feign调用：" + helloServiceFeign.hello();
     }
 
     @GetMapping("/hello/{str}")
     public String hello(@PathVariable("str") String str) {
-        String response = "feign调用：" + helloServiceFeign.hello(str);
-        System.out.println(response);
-        return response;
+        return "feign调用：" + helloServiceFeign.hello(str);
     }
 
     @GetMapping("/hello/list")
     public String hello(@RequestParam("list") List<String> list) {
-        String response = "feign调用：" + helloServiceFeign.hello(list);
-        System.out.println(response);
-        return response;
+        return "feign调用：" + helloServiceFeign.hello(list);
     }
 }

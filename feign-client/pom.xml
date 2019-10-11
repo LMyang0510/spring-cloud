@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example.springcloud</groupId>
-    <artifactId>feignclient</artifactId>
+    <artifactId>feign-client</artifactId>
 
     <dependencies>
         <dependency>

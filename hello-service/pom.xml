@@ -14,11 +14,4 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>hello-service</name>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-        </dependency>
-    </dependencies>
-
 </project>

@@ -21,6 +21,7 @@
         <module>hello-service</module>
         <module>ribbon</module>
         <module>feign-client</module>
+        <module>hystrix</module>
     </modules>
 
     <properties>
@@ -45,6 +46,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
