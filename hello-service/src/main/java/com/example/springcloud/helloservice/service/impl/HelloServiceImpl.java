@@ -1,5 +1,6 @@
-package com.example.springcloud.helloservice;
+package com.example.springcloud.helloservice.service.impl;
 
+import com.example.springcloud.helloservice.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

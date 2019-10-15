@@ -1,4 +1,4 @@
-package com.example.springcloud.helloservice;
+package com.example.springcloud.helloservice.service;
 
 import java.util.List;
 
