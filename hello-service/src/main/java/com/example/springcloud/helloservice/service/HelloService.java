@@ -14,5 +14,5 @@ public interface HelloService {
 
     String hello(String str);
 
-    String hello(List<String> list);
+    List<String> hello(List<String> list);
 }

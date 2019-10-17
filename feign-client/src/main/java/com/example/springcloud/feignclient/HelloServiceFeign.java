@@ -3,7 +3,8 @@ package com.example.springcloud.feignclient;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface HelloServiceFeign {
     @GetMapping("/hello/{str}")
     String hello(@PathVariable("str") String str);
 
-    @GetMapping("hello/list")
-    String hello(@RequestParam("list") List<String> list);
+    @PostMapping("hello/list")
+    List<String> hello(@RequestBody List<String> list);
 
 }

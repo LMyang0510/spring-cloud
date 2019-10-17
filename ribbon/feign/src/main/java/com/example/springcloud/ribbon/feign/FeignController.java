@@ -31,7 +31,9 @@ public class FeignController {
     }
 
     @GetMapping("/hello/list")
-    public String hello(@RequestParam("list") List<String> list) {
-        return "feign调用：" + helloServiceFeign.hello(list);
+    public List<String> hello(@RequestParam("list") List<String> list) {
+        List<String> stringList = helloServiceFeign.hello(list);
+        stringList.forEach(string -> string = "feign调用：" + string);
+        return stringList;
     }
 }

@@ -4,6 +4,7 @@ import com.example.springcloud.helloservice.service.HelloService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -19,27 +20,28 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String hello() {
-        sleep();
-        return "_" + System.currentTimeMillis();
+        return "_" + sleep();
     }
 
     @Override
     public String hello(String str) {
-        sleep();
-        return str + "_" + System.currentTimeMillis();
+        return "_" + str + "_" + sleep();
     }
 
     @Override
-    public String hello(List<String> list) {
-        sleep();
-        return list + "_" + System.currentTimeMillis();
+    public List<String> hello(List<String> list) {
+        List<String> respList = new ArrayList<>(list.size());
+        list.forEach(string -> respList.add("_" + string + "_" + sleep()));
+        return respList;
     }
 
-    private void sleep() {
+    private int sleep() {
+        int nextInt = new Random().nextInt(1500);
         try {
-            Thread.sleep(new Random().nextInt(3000));
+            Thread.sleep(nextInt);
         } catch (InterruptedException e) {
             log.warn("线程被打断", e);
         }
+        return nextInt;
     }
 }
