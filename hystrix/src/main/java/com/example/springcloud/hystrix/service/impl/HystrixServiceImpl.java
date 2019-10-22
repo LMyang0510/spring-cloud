@@ -46,9 +46,7 @@ public class HystrixServiceImpl implements HystrixService {
     @Override
     // 请求缓存
     @CacheResult(cacheKeyMethod = "cacheKeyMethod")
-    // 请求熔断 + 服务降级
-//    @HystrixCommand(fallbackMethod = "fallbackMethod")
-//    // 请求合并
+    // 请求合并
     @HystrixCollapser(batchMethod = "hello", collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")})
     public String hello(String str) {
         return "hystrix-feign调用：" + helloServiceFeign.hello(str);

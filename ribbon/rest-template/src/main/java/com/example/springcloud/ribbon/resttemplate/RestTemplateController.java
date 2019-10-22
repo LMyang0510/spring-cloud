@@ -1,13 +1,15 @@
 package com.example.springcloud.ribbon.resttemplate;
 
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -35,7 +37,14 @@ public class RestTemplateController {
     }
 
     @GetMapping("/hello/list")
-    public String hello(@RequestParam("list") List<String> list) {
-        return "restTemplate调用：" + restTemplate.getForEntity(SERVER_URL, String.class, list).getBody();
+    @SuppressWarnings("unchecked")
+    public List hello(@RequestParam("list") List<String> list) {
+        List<String> stringList = restTemplate.getForEntity(SERVER_URL + "/list", List.class, list).getBody();
+        if (CollectionUtils.isEmpty(stringList)) {
+            return Collections.emptyList();
+        }
+        List<String> result = new ArrayList<>(stringList.size());
+        stringList.forEach(string -> result.add("restTemplate调用：" + string));
+        return result;
     }
 }
