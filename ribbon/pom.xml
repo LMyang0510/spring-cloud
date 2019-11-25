@@ -28,7 +28,7 @@
 
     <modules>
         <module>rest-template</module>
-        <module>feign</module>
+        <module>ribbon-feign</module>
     </modules>
 
 </project>

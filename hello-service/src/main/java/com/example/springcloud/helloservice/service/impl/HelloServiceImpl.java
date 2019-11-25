@@ -30,9 +30,10 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public List<String> hello(List<String> list) {
-        List<String> respList = new ArrayList<>(list.size());
-        list.forEach(string -> respList.add("_" + string + "_" + sleep()));
-        return respList;
+        int sleep = sleep();
+        List<String> resultList = new ArrayList<>(list.size());
+        list.forEach(string -> resultList.add("_" + string + "_" + sleep));
+        return resultList;
     }
 
     private int sleep() {

@@ -3,12 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>springcloud</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>springcloud</name>
-    <packaging>pom</packaging>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,12 +10,20 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <groupId>com.example</groupId>
+    <artifactId>springcloud</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>springcloud</name>
+    <packaging>pom</packaging>
+
     <modules>
         <module>eureka</module>
+        <module>service-api</module>
         <module>hello-service</module>
         <module>ribbon</module>
         <module>feign-client</module>
         <module>hystrix</module>
+        <module>feign</module>
     </modules>
 
     <properties>

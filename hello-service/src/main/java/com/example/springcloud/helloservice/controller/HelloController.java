@@ -1,10 +1,10 @@
 package com.example.springcloud.helloservice.controller;
 
 import com.example.springcloud.helloservice.service.HelloService;
+import com.example.springcloud.serviceapi.HelloServiceApi;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +15,9 @@ import java.util.List;
 /**
  * @author LMyang
  */
+@Slf4j
 @RestController
-public class HelloController {
+public class HelloController implements HelloServiceApi {
 
     @Value("${spring.application.name}")
     private String applicationName;
@@ -26,21 +27,26 @@ public class HelloController {
     @Resource
     private HelloService helloService;
 
-    @GetMapping("/hello")
+    @Override
     public String hello() {
-        return applicationName + ":" + port + helloService.hello();
+        String result = applicationName + ":" + port + helloService.hello();
+        log.info(result);
+        return result;
     }
 
-    @GetMapping("/hello/{str}")
+    @Override
     public String hello(@PathVariable("str") String str) {
-        return applicationName + ":" + port + helloService.hello(str);
+        String result = applicationName + ":" + port + helloService.hello(str);
+        log.info(result);
+        return result;
     }
 
-    @PostMapping("/hello/list")
+    @Override
     public List<String> hello(@RequestBody List<String> list) {
-        List<String> stringList = helloService.hello(list);
-        List<String> respList = new ArrayList<>(stringList.size());
-        stringList.forEach(string -> respList.add(applicationName + ":" + port + string));
-        return respList;
+        List<String> resultList = new ArrayList<>(list.size());
+        list = helloService.hello(list);
+        list.forEach(s -> resultList.add(applicationName + ":" + port + s));
+        log.info(resultList.toString());
+        return resultList;
     }
 }
