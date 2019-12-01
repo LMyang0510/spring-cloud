@@ -1,5 +1,6 @@
 package com.example.springcloud.serviceapi;
 
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +15,8 @@ import java.util.List;
  * @author LMyang
  * @date 2019/10/11
  */
-@RequestMapping("/helloService")
+@FeignClient(value = "hello-service", fallback = HelloServiceApiFallback.class)
+@RequestMapping("/hello")
 public interface HelloServiceApi {
 
     @GetMapping("/hello")
@@ -23,6 +25,6 @@ public interface HelloServiceApi {
     @GetMapping("/hello/{str}")
     String hello(@PathVariable("str") String str);
 
-    @PostMapping("hello/list")
+    @PostMapping("/hello/list")
     List<String> hello(@RequestBody List<String> list);
 }

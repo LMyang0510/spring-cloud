@@ -1,7 +1,7 @@
 package com.example.springcloud.hystrix.service.impl;
 
-import com.example.springcloud.feignclient.HelloServiceApiFeign;
 import com.example.springcloud.hystrix.service.HystrixService;
+import com.example.springcloud.serviceapi.HelloServiceApi;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -25,13 +25,13 @@ import java.util.List;
 public class HystrixServiceImpl implements HystrixService {
 
     @Resource
-    private HelloServiceApiFeign helloServiceFeign;
+    private HelloServiceApi helloServiceApi;
 
     @Override
     // 请求熔断 + 服务降级
     @HystrixCommand(fallbackMethod = "fallbackMethod")
     public String hello() {
-        return "hystrix-feign调用：" + helloServiceFeign.hello();
+        return "hystrix-feign调用：" + helloServiceApi.hello();
     }
 
 
@@ -53,16 +53,16 @@ public class HystrixServiceImpl implements HystrixService {
     @HystrixCollapser(batchMethod = "hello",
             collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")})
     public String hello(String str) {
-        return "hystrix-feign调用：" + helloServiceFeign.hello(str);
+        return "hystrix-feign调用：" + helloServiceApi.hello(str);
     }
 
 
     @Override
-    // 请求熔断 + 服务降级
-    @HystrixCommand(fallbackMethod = "fallbackMethod")
+    // 请求熔断 + 服务降级 + 忽略异常（出现指定异常时，不进行请求熔断）
+    @HystrixCommand(fallbackMethod = "fallbackMethod", ignoreExceptions = {Exception.class})
     public List<String> hello(List<String> list) {
         List<String> resultList = new ArrayList<>(list.size());
-        list = helloServiceFeign.hello(list);
+        list = helloServiceApi.hello(list);
         list.forEach(s -> resultList.add("hystrix-feign调用：" + s));
         log.info(resultList.toString());
         return resultList;

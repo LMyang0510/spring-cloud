@@ -1,6 +1,6 @@
 package com.example.springcloud.feign;
 
-import com.example.springcloud.feignclient.HelloServiceApiFeign;
+import com.example.springcloud.serviceapi.HelloServiceApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,22 +22,22 @@ import java.util.List;
 public class FeignController {
 
     @Resource
-    private HelloServiceApiFeign helloServiceFeign;
+    private HelloServiceApi helloServiceApi;
 
     @GetMapping("/hello")
     public String hello() {
-        return "feign调用：" + helloServiceFeign.hello();
+        return "feign调用：" + helloServiceApi.hello();
     }
 
     @GetMapping("/hello/{str}")
     public String hello(@PathVariable("str") String str) {
-        return "feign调用：" + helloServiceFeign.hello(str);
+        return "feign调用：" + helloServiceApi.hello(str);
     }
 
     @PostMapping("hello/list")
     public List<String> hello(@RequestBody List<String> list) {
         List<String> resultList = new ArrayList<>(list.size());
-        list = helloServiceFeign.hello(list);
+        list = helloServiceApi.hello(list);
         list.forEach(string -> resultList.add("feign调用：" + string));
         log.info(resultList.toString());
         return resultList;

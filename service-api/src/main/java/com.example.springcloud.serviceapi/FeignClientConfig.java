@@ -1,4 +1,4 @@
-package com.example.springcloud.feignclient;
+package com.example.springcloud.serviceapi;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;
