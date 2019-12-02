@@ -1,0 +1,23 @@
+GET http://localhost:8004/hello
+
+
+###
+
+GET http://localhost:8004/hello/args
+
+
+###
+
+POST http://localhost:8004/hello/list
+Content-Type: application/json
+
+{
+  "list": [
+    "a",
+    "b",
+    "c"
+  ]
+}
+
+###
+

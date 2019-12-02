@@ -12,7 +12,6 @@
     <groupId>com.example.springcloud</groupId>
     <artifactId>ribbon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>ribbon</name>
     <packaging>pom</packaging>
 
     <dependencies>

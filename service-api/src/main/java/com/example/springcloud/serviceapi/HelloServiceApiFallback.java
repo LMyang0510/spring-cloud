@@ -1,6 +1,8 @@
 package com.example.springcloud.serviceapi;
 
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Collections;
 import java.util.List;
@@ -21,12 +23,12 @@ public class HelloServiceApiFallback implements HelloServiceApi {
     }
 
     @Override
-    public String hello(String str) {
-        return "hello(String str) fallback";
+    public String hello(@PathVariable("str") String str) {
+        return "hello(@PathVariable(\"str\") String str) fallback";
     }
 
     @Override
-    public List<String> hello(List<String> list) {
-        return Collections.singletonList("hello(List<String> list) fallback");
+    public List<String> hello(@RequestBody List<String> list) {
+        return Collections.singletonList("@RequestBody hello(List<String> list) fallback");
     }
 }

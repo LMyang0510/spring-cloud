@@ -13,15 +13,13 @@
     <groupId>com.example</groupId>
     <artifactId>springcloud</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springcloud</name>
     <packaging>pom</packaging>
 
     <modules>
         <module>eureka</module>
-        <module>service-api</module>
         <module>hello-service</module>
+        <module>service-api</module>
         <module>ribbon</module>
-        <module>feign-client</module>
         <module>hystrix</module>
         <module>feign</module>
     </modules>

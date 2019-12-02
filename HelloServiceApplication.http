@@ -1,0 +1,22 @@
+GET http://localhost:9001/hello/hello
+
+###
+
+GET http://localhost:9001/hello/hello/args
+
+
+###
+
+POST http://localhost:9001/hello/hello/list
+Content-Type: application/json
+
+{
+  "list": [
+    "a",
+    "b",
+    "c"
+  ]
+}
+
+###
+

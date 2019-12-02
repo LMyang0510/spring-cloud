@@ -11,7 +11,6 @@
     <groupId>com.example.springcloud.ribbon</groupId>
     <artifactId>rest-template</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>rest-template</name>
     <packaging>jar</packaging>
 
 </project>

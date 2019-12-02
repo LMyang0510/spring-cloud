@@ -1,11 +1,13 @@
 package com.example.springcloud.helloservice.controller;
 
 import com.example.springcloud.helloservice.service.HelloService;
-import com.example.springcloud.serviceapi.HelloServiceApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -17,7 +19,8 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-public class HelloController implements HelloServiceApi {
+@RequestMapping("/hello")
+public class HelloController {
 
     @Value("${spring.application.name}")
     private String applicationName;
@@ -27,21 +30,21 @@ public class HelloController implements HelloServiceApi {
     @Resource
     private HelloService helloService;
 
-    @Override
+    @GetMapping("/hello")
     public String hello() {
         String result = applicationName + ":" + port + helloService.hello();
         log.info(result);
         return result;
     }
 
-    @Override
+    @GetMapping("/hello/{str}")
     public String hello(@PathVariable("str") String str) {
         String result = applicationName + ":" + port + helloService.hello(str);
         log.info(result);
         return result;
     }
 
-    @Override
+    @PostMapping("/hello/list")
     public List<String> hello(@RequestBody List<String> list) {
         List<String> resultList = new ArrayList<>(list.size());
         list = helloService.hello(list);
