@@ -1,4 +1,4 @@
-package com.example.springcloud.serviceapi;
+package com.example.springcloud.api;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.PathVariable;

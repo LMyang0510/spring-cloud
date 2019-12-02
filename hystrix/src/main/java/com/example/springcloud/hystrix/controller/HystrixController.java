@@ -1,7 +1,7 @@
 package com.example.springcloud.hystrix.controller;
 
+import com.example.springcloud.api.HelloServiceApi;
 import com.example.springcloud.hystrix.service.HystrixService;
-import com.example.springcloud.serviceapi.HelloServiceApi;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -12,6 +12,6 @@
     <groupId>com.example.springcloud</groupId>
     <artifactId>eureka</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eureka</name>
+    <packaging>war</packaging>
 
 </project>

@@ -12,13 +12,13 @@
     <groupId>com.example.springcloud</groupId>
     <artifactId>hello-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hello-service</name>
+    <packaging>jar</packaging>
 
     <dependencies>
         <!-- local repository -->
         <dependency>
             <groupId>com.example.springcloud</groupId>
-            <artifactId>service-api</artifactId>
+            <artifactId>api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>

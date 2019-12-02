@@ -1,7 +1,7 @@
 package com.example.springcloud.hystrix.service.impl;
 
+import com.example.springcloud.api.HelloServiceApi;
 import com.example.springcloud.hystrix.service.HystrixService;
-import com.example.springcloud.serviceapi.HelloServiceApi;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;

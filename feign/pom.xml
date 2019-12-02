@@ -12,13 +12,13 @@
     <groupId>com.example.springcloud</groupId>
     <artifactId>feign</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>feign</name>
+    <packaging>war</packaging>
 
     <dependencies>
         <!-- local repository -->
         <dependency>
             <groupId>com.example.springcloud</groupId>
-            <artifactId>service-api</artifactId>
+            <artifactId>api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
