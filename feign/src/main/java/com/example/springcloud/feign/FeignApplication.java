@@ -8,7 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 /**
  * @author LMyang
  */
-@EnableFeignClients(basePackages = "com.example.springcloud.serviceapi")
+@EnableFeignClients(basePackages = "com.example.springcloud.api")
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "com.example.springcloud")
 public class FeignApplication {
