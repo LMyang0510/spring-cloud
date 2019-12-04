@@ -1,6 +1,5 @@
 package com.example.springcloud.hystrix.controller;
 
-import com.example.springcloud.api.HelloServiceApi;
 import com.example.springcloud.hystrix.service.HystrixService;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +18,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/hystrix")
-public class HystrixController implements HelloServiceApi {
+public class HystrixController {
 
     @Resource
     private HystrixService hystrixService;

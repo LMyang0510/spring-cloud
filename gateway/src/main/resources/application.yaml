@@ -1,0 +1,26 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+logging:
+  level:
+    com.example.springcloud: debug
+    org.springframework.gateway=debug: debug
+
+---
+# Gateway配置
+## 与服务注册于发现组件进行结合
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true

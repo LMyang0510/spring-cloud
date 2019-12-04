@@ -1,0 +1,9 @@
+GET http://localhost:80/api/feign/hello/args
+
+
+###
+
+GET http://localhost:80/api/hystrix/hello/args
+
+
+###

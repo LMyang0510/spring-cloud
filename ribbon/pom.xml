@@ -14,6 +14,11 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>rest-template</module>
+        <module>ribbon-feign</module>
+    </modules>
+
     <dependencies>
         <!-- local repository -->
         <dependency>
@@ -23,18 +28,9 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>rest-template</module>
-        <module>ribbon-feign</module>
-    </modules>
 
 </project>

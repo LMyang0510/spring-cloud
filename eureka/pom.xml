@@ -14,4 +14,11 @@
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-netflix-eureka-server</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>
