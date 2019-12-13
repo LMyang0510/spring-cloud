@@ -50,8 +50,8 @@ public class HystrixServiceImpl implements HystrixService {
     // 请求缓存
     @CacheResult(cacheKeyMethod = "cacheKeyMethod")
     // 请求合并
-    @HystrixCollapser(batchMethod = "hello",
-            collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")})
+//    @HystrixCollapser(batchMethod = "hello",
+//            collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")})
     public String hello(String str) {
         return "hystrix-feign调用：" + helloServiceApi.hello(str);
     }

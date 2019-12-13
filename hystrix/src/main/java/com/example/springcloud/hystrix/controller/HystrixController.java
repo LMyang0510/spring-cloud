@@ -4,8 +4,6 @@ import com.example.springcloud.hystrix.service.HystrixService;
 import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,8 +36,8 @@ public class HystrixController {
         return hystrixService.hello(str);
     }
 
-    @PostMapping("/list")
-    public List<String> hello(@RequestBody List<String> list) {
+    @GetMapping("/list")
+    public List<String> hello(List<String> list) {
         return hystrixService.hello(list);
     }
 }

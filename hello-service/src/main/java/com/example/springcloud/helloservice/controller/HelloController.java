@@ -37,14 +37,14 @@ public class HelloController {
         return result;
     }
 
-    @GetMapping("/hello/{str}")
+    @GetMapping("/{str}")
     public String hello(@PathVariable("str") String str) {
         String result = applicationName + ":" + port + helloService.hello(str);
         log.info(result);
         return result;
     }
 
-    @PostMapping("/hello/list")
+    @PostMapping("/list")
     public List<String> hello(@RequestBody List<String> list) {
         List<String> resultList = new ArrayList<>(list.size());
         list = helloService.hello(list);

@@ -13,14 +13,14 @@ eureka:
 logging:
   level:
     com.example.springcloud: debug
-    org.springframework.gateway=debug: debug
+    org.springframework.gateway: debug
 
 ---
-# Gateway配置
-## 与服务注册于发现组件进行结合
-spring:
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+## Gateway配置
+### 与服务注册于发现组件进行结合
+#spring:
+#  cloud:
+#    gateway:
+#      discovery:
+#        locator:
+#          enabled: true

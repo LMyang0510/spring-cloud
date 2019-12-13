@@ -1,9 +1,15 @@
-GET http://localhost:80/api/feign/hello/args
-
+GET http://localhost/actuator/gateway/routes
 
 ###
 
-GET http://localhost:80/api/hystrix/hello/args
+GET http://localhost/hello/args
 
+###
+
+GET http://localhost/feign/args
+
+###
+
+GET http://localhost/hystrix/args
 
 ###

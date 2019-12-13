@@ -20,9 +20,9 @@ public interface HelloServiceApi {
     @GetMapping("/hello/hello")
     String hello();
 
-    @GetMapping("/hello/hello/{str}")
+    @GetMapping("/hello/{str}")
     String hello(@PathVariable("str") String str);
 
-    @PostMapping("/hello/hello/list")
+    @PostMapping("/hello/list")
     List<String> hello(@RequestBody List<String> list);
 }
