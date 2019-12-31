@@ -17,12 +17,12 @@ import java.util.List;
 @FeignClient(value = "hello-service", fallback = HelloServiceApiFallback.class)
 public interface HelloServiceApi {
 
-    @GetMapping("/hello/hello")
+    @GetMapping("/hello")
     String hello();
 
-    @GetMapping("/hello/{str}")
+    @GetMapping("/{str}")
     String hello(@PathVariable("str") String str);
 
-    @PostMapping("/hello/list")
+    @PostMapping("/list")
     List<String> hello(@RequestBody List<String> list);
 }

@@ -1,5 +1,7 @@
 server:
   port: 80
+  servlet:
+    context-path: /gateway
 
 spring:
   application:
@@ -13,14 +15,33 @@ eureka:
 logging:
   level:
     com.example.springcloud: debug
+    org.springframework.cloud: debug
     org.springframework.gateway: debug
 
 ---
-## Gateway配置
-### 与服务注册于发现组件进行结合
-#spring:
-#  cloud:
-#    gateway:
+# Gateway配置
+spring:
+  cloud:
+    gateway:
+      ## 与服务注册于发现组件进行结合
 #      discovery:
 #        locator:
 #          enabled: true
+#          lower-case-service-id: true
+      ## 路由配置
+      routes:
+        ## 授权Api
+        - id: api_route
+          uri: lb://feign
+          predicates:
+            - Path=/api/feign/**
+            - Header=X-AUTH-TOKEN, \d{5}:[a-z0-9]{32}
+          filters:
+            - StripPrefix=2
+        ## 开放平台Api
+        - id: openapi_route
+          uri: lb://hello-service
+          predicates:
+            - Path=/openapi/hello-service/**
+          filters:
+            - StripPrefix=2

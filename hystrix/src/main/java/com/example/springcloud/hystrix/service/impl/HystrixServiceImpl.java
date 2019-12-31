@@ -31,7 +31,7 @@ public class HystrixServiceImpl implements HystrixService {
     // 请求熔断 + 服务降级
     @HystrixCommand(fallbackMethod = "fallbackMethod")
     public String hello() {
-        return "hystrix-feign调用：" + helloServiceApi.hello();
+        return "hystrix调用：" + helloServiceApi.hello();
     }
 
 
@@ -53,7 +53,7 @@ public class HystrixServiceImpl implements HystrixService {
 //    @HystrixCollapser(batchMethod = "hello",
 //            collapserProperties = {@HystrixProperty(name = "timerDelayInMilliseconds", value = "1000")})
     public String hello(String str) {
-        return "hystrix-feign调用：" + helloServiceApi.hello(str);
+        return "hystrix调用：" + helloServiceApi.hello(str);
     }
 
 
@@ -63,7 +63,7 @@ public class HystrixServiceImpl implements HystrixService {
     public List<String> hello(List<String> list) {
         List<String> resultList = new ArrayList<>(list.size());
         list = helloServiceApi.hello(list);
-        list.forEach(s -> resultList.add("hystrix-feign调用：" + s));
+        list.forEach(s -> resultList.add("hystrix调用：" + s));
         log.info(resultList.toString());
         return resultList;
     }

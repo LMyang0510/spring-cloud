@@ -1,8 +1,9 @@
-GET http://localhost/actuator/gateway/routes
+GET http://localhost/gateway/openapi/hello-service/args
 
 ###
 
-GET http://localhost/hello/args
+GET http://localhost/gateway/api/feign/args
+X-AUTH-TOKEN: 05122:fecb777ad7244517a1d094aadaa11e1c
 
 ###
 
